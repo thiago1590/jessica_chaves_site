@@ -3,7 +3,7 @@ const routes = express.Router();
 
 const paymentsController = require('../controllers/paymentsController');
 
-routes.get('/checkou/:id/:email/:description/:amount', paymentsController.checkout)
+routes.get('/checkout/:id/:email/:description/:amount', paymentsController.checkout)
 
 routes.get('/success', (req, res) => {
     return res.render('success_screen')
