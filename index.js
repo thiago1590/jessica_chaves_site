@@ -6,8 +6,6 @@ const path = require('path');
 
 const paymentsRoute = require('./src/routes/paymentsRoute');
 
-require('./src/config/getEnv')()
-
 const app = express();
 
 app.use(cors());
@@ -20,7 +18,7 @@ app.set("view engine", "ejs");
 
 app.use('/payments',paymentsRoute);
 
-app.listen(process.env.API_PORT, function(err){
+app.listen(3333, function(err){
     if(err) console.error(err);
-    console.log(`API INICIADA NA PORTA ${process.env.API_PORT}`) 
+    console.log('API INICIADA NA PORTA 3333') 
 });

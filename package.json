@@ -4,15 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js --env production"
+    "start": "node index.js"
   },
-  "apps": [
-    {
-        "name": "my-app",
-        "script": "yarn",
-        "args" : "start"
-    }
-],
   "keywords": [],
   "author": "",
   "license": "ISC",

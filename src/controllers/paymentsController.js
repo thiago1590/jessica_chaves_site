@@ -9,10 +9,9 @@ const getFullUrl = (req) =>{
 module.exports = {
     async checkout(req, res){
 
-        console.log(process.env)
         MercadoPago.configure({
-            sandbox: process.env.SANDBOX == 'true' ? true : false,
-            access_token: process.env.MP_ACCESS_TOKEN
+            sandbox: false,
+            access_token: 'APP_USR-6245134050800709-052902-27d21be63f5445672496842bd0eba048-156098999'
         });
 
         const { id, email, description, amount } = req.params;
