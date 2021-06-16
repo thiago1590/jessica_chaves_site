@@ -6,6 +6,13 @@
   "scripts": {
     "start": "node index.js --env production"
   },
+  "apps": [
+    {
+        "name": "my-app",
+        "script": "yarn",
+        "args" : "start"
+    }
+],
   "keywords": [],
   "author": "",
   "license": "ISC",
