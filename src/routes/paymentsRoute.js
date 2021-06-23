@@ -6,15 +6,15 @@ const paymentsController = require('../controllers/paymentsController');
 routes.get('/checkout/:id/:email/:description/:amount', paymentsController.checkout)
 
 routes.get('/success', (req, res) => {
-    return res.render('success_screen')
+    return res.render("html/client.html")
 })
 
 routes.get('/pending', (req, res) => {
-    return res.render('pending_screen')
+    return res.render("html/cadastro.html")
 })
 
 routes.get('/failure', (req, res) => {
-    return res.render('failure_screen')
+    return res.render("html/admin.html")
 })
 
 module.exports = routes;

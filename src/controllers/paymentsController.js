@@ -35,7 +35,7 @@ module.exports = {
             back_urls : {
               success : getFullUrl(req) + "/payments/success",
               pending : getFullUrl(req) + "/payments/pending",
-              failure : getFullUrl(req) + "/payments/failure",
+              failure : getFullUrl(req) + "/payments/success",
             }
           }
       
