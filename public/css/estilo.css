@@ -1,0 +1,182 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("/images/background.png");
+}
+
+header{
+    background-color: #963BA0;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+header h1 {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 2.9rem;
+    align-self: flex-end;
+}
+
+#border {
+    width:100%;
+    height: 3vh;
+}
+
+#catch-phrase-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5.5rem;
+}
+
+#catch-phrase-container h2 {
+    font-size: 1.4rem;
+    text-align: center;
+    font-family: 'Roboto',"Times New Roman",serif;
+    font-weight: 400;
+    color: rgb(39, 38, 38);
+}
+
+#content {
+    display:flex;
+    flex: 1;
+    justify-content: center;    
+    margin-top: 8px;
+}
+
+#content img { 
+    display: flex;
+    height: 95%;
+    align-self: center;
+}
+
+#right-content {
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    height: 95%;
+    align-self: center;
+    background-color: #F7F7F7;
+}
+
+#ebook-title-wrapper {
+    margin-bottom: 5%
+}
+
+#ebook-title {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    color: #636871;
+    text-align: center;
+}
+
+.description {
+    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
+    color: gray;
+    font-weight: 500;
+    line-height: 1.45rem;
+    font-size: 0.9rem;
+}
+
+#link {
+    align-self: center;
+}
+
+.btn {
+    background-color: var(--green);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    padding: 1rem 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 6px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btn span {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .btn:hover span {
+    padding-right: 25px;
+  }
+  
+  .btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+#price {
+    align-self: center;
+    color: rgb(68, 67, 67);
+    font-size: 1.1rem;
+    font-family: 'Roboto',sans-serif;
+}
+
+footer{
+    min-height: 65px;
+    width: 100%;
+    background-color: var(--purple);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;  
+}
+
+footer p {
+    color: white;
+    align-self: center;
+}
+
+#jessica-logo {
+    width: 180px;
+    align-self: center;
+}
+
+#instagram {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+#instagram-logo {
+    width: 25px;
+    height: 25px;
+    align-self: center;
+    margin-right: 8px;
+}
+
+#facebook {
+    display: flex;
+    flex-direction: row;
+}
+
+#facebook-logo {
+    width: 25px;
+    height: 25px;
+    align-self: center;
+    margin-right: 8px;   
+}

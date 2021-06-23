@@ -1,0 +1,186 @@
+
+
+body{
+    background-color: #eee;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+header img {
+    width: 20px;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    max-width: 1028px;
+    margin: 15px auto 0 auto;
+}
+
+header{
+    height: 30px;
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid #E8E7E7;
+}
+
+#left-container {
+    background-color: white;
+    margin-right: 20px;
+    flex: 2;
+    border-radius: 3px;
+    border: 1px solid #E8E7E7;
+    padding: 20px;
+}
+
+#content-header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+#content-header h1 {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    color: #636871;
+}
+
+#content-header h2 {
+    color: #636871;
+    margin-top: 10px;
+}
+
+#right-container {
+    background-color: white;
+    flex: 1.1;
+    border-radius: 3px;
+    border: 1px solid #E8E7E7;
+    padding: 20px;
+    height: auto;
+}
+
+#right-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+#right-container p {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: gray;
+}
+
+.warning{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.warning-purchase-text {
+    color: #009358;
+    font-weight: 600;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    margin-left: 3px;
+}
+
+#warning-text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#ebook-image {
+    height: 160px;
+    width: 160px;
+    border: 1px solid #E8E7E7;
+    margin-right: 20px;
+}
+
+#link-details {
+    font-size: 0.875rem;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+#form h3{
+    color: rgb(117, 112, 112);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+.input{
+    margin: 10px 0px;
+    width: 100%;
+    border: 1px solid rgb(204, 201, 201);
+    border-radius: 4px;
+    padding: 12px 5px;
+}
+
+.input-sm{
+    margin: 20px 0px;
+    width: 100%;
+    border: 1px solid rgb(204, 201, 201);
+    border-radius: 4px;
+    padding: 15px 5px;
+}
+
+.input-sm{
+    display: none;
+}
+
+::placeholder {
+    font-size: 16px;
+}
+
+
+.btn {
+    background-color: var(--green);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    padding: 1rem 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 6px;
+    transition: all 0.5s;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn span {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .btn:hover span {
+    padding-right: 25px;
+  }
+  
+  .btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
