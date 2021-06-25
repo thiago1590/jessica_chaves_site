@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "mercadopago": "^1.2.0",
+    "pm2": "^5.1.0",
     "yargs": "^14.2.0"
   },
   "devDependencies": {
