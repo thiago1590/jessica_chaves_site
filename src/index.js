@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     return res.render("html/client.html")
 })
 
-app.listen(80, function(err){
+app.listen(3000, function(err){
     if(err) console.error(err);
-    console.log(`API INICIADA NA PORTA 80`) 
+    console.log(`API INICIADA NA PORTA 3000`) 
 });
