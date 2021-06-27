@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  app:
+    labels:
+      - "traefik.https.routers.nginx-web.rule=Host(`jessicachavesnutri.cf`)"
+
+  reverse-proxy:
+    image: traefik:v2.4
+    command: 
+      - --api.insecure=true 
+      - --providers.docker
+      - --entrypoints.web.address=:80
+      - --entrypoints.web-secured.address=:443
+    ports: 
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -20,7 +20,7 @@ app.set("view engine", "html")
 app.use('/payments',paymentsRoute);
 
 app.get('/', (req, res) => {
-    return res.render("html/client.html")
+    return res.status(200).render("html/client.html")
 })
 
 app.listen(3000, function(err){
