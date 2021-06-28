@@ -22,10 +22,6 @@ app.get('/', (req, res) => {
     return res.status(200).render("html/client.html")
 })
 
-app.post('/', (req, res) => {
-    return res.status(200).json(req.body)
-})
-
 app.listen(3000, function(err){
     if(err) console.error(err);
     console.log(`API INICIADA NA PORTA 3000`) 
