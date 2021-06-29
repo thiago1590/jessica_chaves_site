@@ -66,8 +66,8 @@ module.exports = {
       return res.status(200).send('informações salvas')
     },
 
-    async listBuyers(req,res) {
-      const buyers = await knex('buyers')
+    listBuyers(req,res) {
+      const buyers = knex('buyers')
       return res.status(200).send(buyers)
     }
 }
