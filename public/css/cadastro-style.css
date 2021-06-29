@@ -184,3 +184,9 @@ header{
     right: 0;
   }
 
+#erro{
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    color: red;
+    text-align: center;
+}

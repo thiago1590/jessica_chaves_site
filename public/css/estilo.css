@@ -172,6 +172,7 @@ footer p {
 #facebook {
     display: flex;
     flex-direction: row;
+    text-decoration: none;
 }
 
 #facebook-logo {
