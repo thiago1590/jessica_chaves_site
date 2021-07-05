@@ -79,7 +79,7 @@
 }
 
 @media(max-height:830px) {
-    #ebook-title-wrapper{
+    #responsive-text {
         display: none;
     }
 }

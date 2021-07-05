@@ -67,16 +67,6 @@ header h1 {
     background-color: #F7F7F7;
 }
 
-#ebook-title-wrapper {
-    margin-bottom: 5%
-}
-
-#ebook-title {
-    font-family: Lato, Helvetica, Arial, sans-serif;
-    color: #636871;
-    text-align: center;
-}
-
 .description {
     font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
     color: gray;
