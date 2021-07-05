@@ -25,6 +25,7 @@ header h1 {
 #border {
     width:100%;
     height: 3vh;
+    margin-top: -1px;
 }
 
 #catch-phrase-container {
