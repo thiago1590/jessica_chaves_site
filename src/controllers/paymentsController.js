@@ -1,4 +1,3 @@
-const { default: knex } = require('knex');
 const MercadoPago = require('mercadopago');
 const knex = require('../database')
 
