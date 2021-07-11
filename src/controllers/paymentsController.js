@@ -1,5 +1,6 @@
 const { default: knex } = require('knex');
 const MercadoPago = require('mercadopago');
+const knex = require('../database')
 
 const getFullUrl = (req) =>{
     const url = req.protocol + '://' + req.get('host');
@@ -50,20 +51,17 @@ module.exports = {
 
      listenPurchase(req,res){
         let {data} = req.body
-        return res.status(200).redirect(`/userInfo:${data.id}`)
+        return res.redirect(getFullUrl(req) + `/v1/payments/${data.id}`)
     },
     
      async getBuyerInfo(req,res) {
-        MercadoPago.configure({
-          sandbox: false,
-          access_token: 'APP_USR-6245134050800709-052902-27d21be63f5445672496842bd0eba048-156098999'
-      });
-      let {payer: {first_name,email}} = req.body
-      await knex('buyer').insert({
-        "name": first_name,
-        email
-      })
-      return res.status(200).send('informações salvas')
+        let {payer} = req.body
+        let email = payer.email
+    
+        knex('buyers').insert({
+            email
+        })
+        return res.json(req.body)
     },
 
     listBuyers(req,res) {
