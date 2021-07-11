@@ -1,5 +1,6 @@
 const MercadoPago = require('mercadopago');
 const knex = require('../database')
+require('dotenv').config()
 
 const getFullUrl = (req) =>{
     const url = req.protocol + '://' + req.get('host');
@@ -48,23 +49,25 @@ module.exports = {
           }
     },
 
-     listenPurchase(req,res){
-        let {data} = req.body
-        return res.redirect(getFullUrl(req) + `/v1/payments/${data.id}`)
+     async listenPurchase(req,res){
+        let {idPayment} = req
+        return res.redirect(`/v1/payments/${idPayment}`)
     },
     
      async getBuyerInfo(req,res) {
+        console.log('cheguei no getBuyerInfo')
         let {payer} = req.body
         let email = payer.email
     
         knex('buyers').insert({
+            idPayment: 'teste',
             email
         })
-        return res.json(req.body)
+        return res.status(200).json(req.body)
     },
 
-    listBuyers(req,res) {
-      const buyers = knex('buyers')
-      return res.status(200).send(buyers)
+    async listBuyers(req,res) {
+      const buyers = await knex('buyers')
+      return res.status(200).json(buyers)
     }
 }

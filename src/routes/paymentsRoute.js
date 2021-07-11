@@ -4,7 +4,7 @@ const routes = express.Router();
 require('dotenv').config()
 
 const paymentsController = require('../controllers/paymentsController');
-
+const paymentMiddleware = require('../middlewares/paymentMiddleware')
 
 routes.get('/payments/checkout/:id/:email/:description/:amount', paymentsController.checkout)
 
@@ -24,9 +24,9 @@ routes.get('/register', (req, res) => {
     return res.render("html/register.html")
 })
 
-routes.post('/', paymentsController.listenPurchase)
+routes.post('/listenPayment', paymentMiddleware.listen, paymentsController.listenPurchase)
 
-routes.get({url:'/v1/payments/:id', headers: `Bearer ${process.env.MP_ACCESS_TOKEN}`}, paymentsController.getBuyerInfo)
+routes.get('/v1/payments/:id', paymentsController.getBuyerInfo)
 
 routes.get('/buyers', paymentsController.listBuyers)
 
