@@ -24,7 +24,7 @@ routes.get('/register', (req, res) => {
     return res.render("html/register.html")
 })
 
-routes.post('/listenPayment', paymentMiddleware.listen, paymentsController.listenPurchase)
+routes.post('/listenPayment', paymentsController.listenPurchase)
 
 routes.get('/v1/payments/:id', paymentsController.getBuyerInfo)
 

@@ -50,19 +50,19 @@ module.exports = {
     },
 
      async listenPurchase(req,res){
-        let {idPayment} = req
-        return res.redirect(`/v1/payments/${idPayment}`)
+        let {data:{id}} = req.body
+        return res.redirect(`/v1/payments/${id}`)
     },
     
      async getBuyerInfo(req,res) {
         console.log('cheguei no getBuyerInfo')
-        let {payer} = req.body
-        let email = payer.email
+        // let {payer} = req.body
+        // let email = payer.email
     
-        knex('buyers').insert({
-            idPayment: 'teste',
-            email
-        })
+        // knex('buyers').insert({
+        //     idPayment: 'teste',
+        //     email
+        // })
         return res.status(200).json(req.body)
     },
 
