@@ -52,7 +52,7 @@ module.exports = {
      async listenPurchase(req,res){
         let {data:{id}} = req.body
         await knex('buyers').insert({
-          idPayment: 'teste1',
+          idPayment: id,
           email: 'cheguei no listenPurchase'
       })
         return res.setHeader('autorization', 'APP_USR-6245134050800709-052902-27d21be63f5445672496842bd0eba048-156098999').redirect(`/v1/payments/${id}`)
