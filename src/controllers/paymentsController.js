@@ -1,5 +1,6 @@
 const MercadoPago = require('mercadopago');
 const knex = require('../database')
+const fetch = require('node-fetch');
 require('dotenv').config()
 
 const getFullUrl = (req) =>{
@@ -40,7 +41,7 @@ module.exports = {
               failure : getFullUrl(req) + "/payments/success",
             }
           }
-      
+
           try {
             const preference = await MercadoPago.preferences.create(purchaseOrder);
             return res.redirect(`${preference.body.init_point}`);
@@ -49,26 +50,30 @@ module.exports = {
           }
     },
 
-     async listenPurchase(req,res){
-        let {data:{id}} = req.body
-        await knex('buyers').insert({
-          idPayment: id,
-          email: 'cheguei no listenPurchase'
+    async listenPurchase(req,res){
+      let {data:{id}} = req.body
+
+      fetch(`https://api.mercadopago.com/v1/payments/${id}`, {
+        headers: {'Authorization': 'Bearer APP_USR-6245134050800709-052902-27d21be63f5445672496842bd0eba048-156098999'}
+      }).then(res => res.json())
+        .then(async json => {
+        let {payer:{email},status} = json
+        if(status == 'approved') {
+          try {
+            await knex('buyers').insert({
+              idPayment: id,
+              email: email
+          })
+          }  catch(err) {
+            return res.send(err.message)
+          }
+        }
       })
-        return res.setHeader('autorization', 'APP_USR-6245134050800709-052902-27d21be63f5445672496842bd0eba048-156098999').redirect(`/v1/payments/${id}`)
-    },
-    
-     async getBuyerInfo(req,res) {
-        console.log('cheguei no getBuyerInfo')
-        // let {payer} = req.body
-        // let email = payer.email
-    
-        await knex('buyers').insert({
-            idPayment: 'teste2',
-            email: 'cheguei no getBuyerInfo'
-        })
-        return res.status(200).json(req.body)
-    },
+      .catch(err => console.log(err.message))
+
+      return res.status(301).send('ok')
+  },
+
 
     async listBuyers(req,res) {
       const buyers = await knex('buyers')
