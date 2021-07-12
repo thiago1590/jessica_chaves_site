@@ -30,5 +30,8 @@ routes.get('/v1/payments/:id', paymentsController.getBuyerInfo)
 
 routes.get('/buyers', paymentsController.listBuyers)
 
+routes.get('/testeRedirect1', paymentsController.testeRedirect1)
+routes.get('/testeRedirect2/:teste', paymentsController.testeRedirect2)
+
 
 module.exports = routes;
