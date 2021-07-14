@@ -1,6 +1,7 @@
 const MercadoPago = require('mercadopago');
 const knex = require('../database')
 const fetch = require('node-fetch');
+const sendEmail = require('../services/sendEmail')
 require('dotenv').config()
 
 const getFullUrl = (req) =>{
@@ -64,6 +65,7 @@ module.exports = {
               idPayment: id,
               email: email
           })
+          sendEmail()
           }  catch(err) {
             return res.send(err.message)
           }
@@ -74,18 +76,8 @@ module.exports = {
       return res.status(301).send('ok')
   },
 
-
     async listBuyers(req,res) {
       const buyers = await knex('buyers')
       return res.status(200).json(buyers)
     },
-
-    async testeRedirect1(req,res) {
-      res.status(200).redirect('/testeRedirect2/testao')
-    },
-
-    async testeRedirect2(req,res) {
-        let teste = req.params
-        return res.json(teste)
-    }
 }

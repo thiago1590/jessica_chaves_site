@@ -1,10 +1,10 @@
+const { Router } = require('express');
 const express = require('express');
 const routes = express.Router();
 
 require('dotenv').config()
 
 const paymentsController = require('../controllers/paymentsController');
-const paymentMiddleware = require('../middlewares/paymentMiddleware')
 
 routes.get('/payments/checkout/:id/:email/:description/:amount', paymentsController.checkout)
 
@@ -27,6 +27,5 @@ routes.get('/register', (req, res) => {
 routes.post('/listenPayment', paymentsController.listenPurchase)
 
 routes.get('/buyers', paymentsController.listBuyers)
-
 
 module.exports = routes;
