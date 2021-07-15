@@ -11,7 +11,9 @@ routes.post('/listenPayment', paymentsController.listenPurchase)
 
 //testing
 routes.get('/sendEmail', (req,res) => {
-    sendEmail()
+    sendEmail().then(result => console.log('Email sent...', result))
+    .catch((err) => console.log(error.message))
+    
     res.send('ok')
 })
 

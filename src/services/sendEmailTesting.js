@@ -1,35 +1,43 @@
 const nodemailer = require("nodemailer");
+const {google} = require('googleapis')
 require('dotenv').config()
 
+const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI)
+oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN})
+
 async function main() {
+  try {
+    const accessToken = await oAuth2Client.getAccessToken()
+  
+    let transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: { 
+        type: 'OAuth2',
+        user: process.env.SENDER_EMAIL,
+        clientId: process.env.CLIENT_ID, 
+        clientSecret: process.env.CLIENT_SECRET, 
+        refreshToken: process.env.REFRESH_TOKEN,
+        accessToken: accessToken
+      },
+    });
 
-  let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: { 
-      user: process.env.SENDER_EMAIL, // generated ethereal user
-      pass: process.env.SENDER_PASSWORD, // generated ethereal password
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-  });
+    let info = await transporter.sendMail({
+      from: `"Jéssica Chaves 👻" <${process.env.SENDER_EMAIL}>`, // sender address
+      to: "thiagoandre2121@gmail.com, thiagoandre1590@gmail.com", // list of receivers
+      subject: "Hello ✔", // Subject line
+      text: "Hello world?", // plain text body
+      html: "<b>Hello world?</b>", // html body
+    });
 
-  let info = await transporter.sendMail({
-    from: `"Jéssica Chaves 👻" <${process.env.SENDER_EMAIL}>`, // sender address
-    to: "thiagoandre2121@gmail.com, noemie.watsica50@ethereal.email", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-  });
+    console.log("Message sent: %s", info.messageId);
 
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+  } catch(err) {
+    console.log(err.message)
+  }
 
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+  
 }
 
 module.exports = main

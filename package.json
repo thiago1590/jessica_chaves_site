@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "googleapis": "^81.0.0",
     "knex": "^0.95.6",
     "mercadopago": "^1.2.0",
     "node-fetch": "^2.6.1",
