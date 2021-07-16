@@ -3,7 +3,8 @@ const routes = express.Router();
 require('dotenv').config()
 
 const paymentsController = require('../controllers/paymentsController');
-const sendEmail = require('../services/sendEmailTesting');
+const testeController = require('../controllers/testeController');
+const sendEmail = require('../services/sendEmail');
 
 routes.get('/payments/checkout/:id/:email/:description/:amount', paymentsController.checkout) //remover description e amount qnd terminar de testar
 routes.get('/purchases', paymentsController.listPurchases)
@@ -16,5 +17,7 @@ routes.get('/sendEmail', (req,res) => {
     
     res.send('ok')
 })
+
+
 
 module.exports = routes;

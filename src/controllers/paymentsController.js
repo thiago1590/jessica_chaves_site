@@ -61,22 +61,27 @@ module.exports = {
         .then(
           async json => {
             let {payer:{email},status} = json
+            console.log(json)
+            //let email_sent = await knex('purchase').select('email_sent').where({idPayment:id})
             if(status == 'approved') {
               try {
-                await knex('buyers').insert({
+                sendEmail()
+                await knex('purchase').insert({
                   id: v4(),
-                  idPayment: id,
-                  email: email
+                  id_payment: id,
+                  buyer_email:email,
+                  first_email_sent: 1,
+                  second_email_sent:1,
+                  status: status
               })
-              sendEmail()
-              }  catch(err) {
+                }  catch(err) {
                 return res.send(err.message)
               }
             }
           }
         )
       .catch(err => console.log(err.message))
-
+      console.log('-------------------------------------------')
       return res.status(200).send('ok')
   },
 
