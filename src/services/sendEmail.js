@@ -31,6 +31,7 @@ async function main(senderEmail,whichEmail) {
             text: "First Email", // plain text body
             html: "<b>First Email</b>", // html body
           });
+          console.log("Message sent: %s", info.messageId);
     }
 
     if(whichEmail == "second") {
@@ -41,10 +42,9 @@ async function main(senderEmail,whichEmail) {
             text: "Second Email", // plain text body
             html: "<b>Second Email?</b>", // html body
           });
+          console.log("Message sent: %s", info.messageId);
     }
     
-    console.log("Message sent: %s", info.messageId);
-
   } catch(err) {
     console.log(err.message)
   }

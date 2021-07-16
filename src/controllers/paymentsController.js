@@ -65,7 +65,7 @@ module.exports = {
             //let email_sent = await knex('purchase').select('email_sent').where({idPayment:id})
             if(status == 'approved') {
               try {
-                sendEmail()
+                sendEmail('thiagoandre2121@gmail.com', 'first')
                 await knex('purchase').insert({
                   id: v4(),
                   id_payment: id,
