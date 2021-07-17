@@ -54,18 +54,21 @@ module.exports = {
 
   async listenPurchase(req, res) {
     let {data:{id}} = req.body
-
-    fetch(`https://api.mercadopago.com/v1/payments/${id}`, {
-      headers: { 'Authorization': `Bearer ${process.env.MP_ACCESS_TOKEN}` }
-    }).then(res => res.json())
-      .then(
-        async paymentInfo => {
-          let { payer: { email }, status } = paymentInfo
-          let response = sendEmailRules(id,email,status)
-          console.log(response)
-        }
-      )
-      .catch(err => console.log(err.message))
+    let email = 'thiaguin@bla'
+    let status = 'pending'
+    let response = await sendEmailRules(id,email,status)
+    console.log(response)
+    // fetch(`https://api.mercadopago.com/v1/payments/${id}`, {
+    //   headers: { 'Authorization': `Bearer ${process.env.MP_ACCESS_TOKEN}` }
+    // }).then(res => res.json())
+    //   .then(
+    //     async paymentInfo => {
+    //       let { payer: { email }, status } = paymentInfo
+    //       let response = sendEmailRules(id,email,status)
+    //       console.log(response)
+    //     }
+    //   )
+    //   .catch(err => console.log(err.message))
       return res.status(200).send('processo finalizado')
   },
 
