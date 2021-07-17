@@ -61,12 +61,12 @@ module.exports = {
       .then(
         async paymentInfo => {
           let { payer: { email }, status } = paymentInfo
-          let response = sendEmailRules()
+          let response = sendEmailRules(id,email,status)
           console.log(response)
         }
       )
       .catch(err => console.log(err.message))
-      return res.status(200).send(response)
+      return res.status(200).send('processo finalizado')
   },
 
   async listPurchases(req, res) {
