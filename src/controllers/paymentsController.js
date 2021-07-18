@@ -1,5 +1,5 @@
 const MercadoPago = require('mercadopago');
-const knex = require('../database')
+const knex = require('../')
 const fetch = require('node-fetch');
 const sendEmailRules = require('../services/sendEmailRules')
 const { v4 } = require('uuid')
@@ -19,21 +19,27 @@ module.exports = {
       access_token: process.env.MP_ACCESS_TOKEN
     })
 
-    const { id, email, description, amount } = req.params
+    const { name, email, phone, amount} = req.params
+    const id = v4()
 
     const purchaseOrder = {
       items: [
         item = {
-          id: id,
-          title: description,
-          description: description,
+          id,
+          title: 'Ebook de receitas',
+          description: 'É um ebook de receitas criado com muito carinho para te auxiliar a ter uma vida saudável, obtendo os resultados desejados, com mais flexibilidade e variação no seu plano alimentar',
           quantity: 1,
           currency_id: 'BRL',
           unit_price: parseFloat(amount)
         }
       ],
       payer: {
-        email: email
+        name,
+        email,
+        phone: {
+          number: parseFloat(phone)
+        }
+
       },
       auto_return: 'all',
       external_reference: id,
@@ -54,21 +60,18 @@ module.exports = {
 
   async listenPurchase(req, res) {
     let {data:{id}} = req.body
-    let email = 'thiaguin@bla'
-    let status = 'pending'
-    let response = await sendEmailRules(id,email,status)
-    console.log(response)
-    // fetch(`https://api.mercadopago.com/v1/payments/${id}`, {
-    //   headers: { 'Authorization': `Bearer ${process.env.MP_ACCESS_TOKEN}` }
-    // }).then(res => res.json())
-    //   .then(
-    //     async paymentInfo => {
-    //       let { payer: { email }, status } = paymentInfo
-    //       let response = sendEmailRules(id,email,status)
-    //       console.log(response)
-    //     }
-    //   )
-    //   .catch(err => console.log(err.message))
+
+    fetch(`https://api.mercadopago.com/v1/payments/${id}`, {
+      headers: { 'Authorization': `Bearer ${process.env.MP_ACCESS_TOKEN}` }
+    }).then(res => res.json())
+      .then(
+        async paymentInfo => {
+          let { payer: { name, email, phone:{number} }, status } = paymentInfo
+          let response = await sendEmailRules(id,name,email,number,status)
+          console.log(response)
+        }
+      )
+      .catch(err => console.log(err.message))
       return res.status(200).send('processo finalizado')
   },
 

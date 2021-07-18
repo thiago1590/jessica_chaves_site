@@ -2,25 +2,28 @@ const knex = require('../database')
 const mailer = require('./nodemailer')
 const { v4 } = require('uuid')
 
-async function sendEmail(id, buyer_email, status) {
+async function sendEmail(id, buyer_name, buyer_email, buyer_phone, status) {
   let payment = await knex('purchase').where({ id_payment: id })
-  
+  console.log(payment)
   if (!payment.id) {
     try{
       await knex('purchase').insert({
         id: v4(),
         id_payment: id,
+        buyer_name,
         buyer_email,
+        buyer_phone,
         first_email_sent: 0,
         second_email_sent: 0,
-        status: 'not_approved'
+        status
       })
     } catch(err) {
       console.log(err.message)
     }
   }
 
-  var [{ first_email_sent, second_email_sent }] = payment
+  var [{ first_email_sent, second_email_sent }] = await knex('purchase').where({ id_payment: id })
+  
     
   if (status == 'pending') {
     if (first_email_sent == 0) {
