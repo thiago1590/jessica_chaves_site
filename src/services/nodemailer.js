@@ -1,6 +1,9 @@
 const nodemailer = require("nodemailer");
 const { google } = require('googleapis')
 require('dotenv').config()
+const {resolve} = require('path')
+const handlebars = require('handlebars')
+const fs = require('fs')
 
 const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI)
 oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN })
@@ -23,13 +26,20 @@ async function main(receiverEmail, whichEmail) {
             },
         });
 
+        const emailTemplatePath = resolve(__dirname, "..", "..", "public", "templateEmail", "email.hbs" ) 
+        const templateFileContent = fs.readFileSync(emailTemplatePath).toString("utf8")
+
+        const mailTemplateParse =  handlebars.compile(templateFileContent)
+
+        const html = mailTemplateParse()
+
         if (whichEmail == "first") {
             let info = await transporter.sendMail({
                 from: `"Jéssica Chaves" <${process.env.SENDER_EMAIL}>`, 
                 to: `${receiverEmail}`, 
-                subject: "Ebook de Receitas", 
+                subject: "Pedido recebido - Ebook", 
                 text: "Acabei de receber o seu pedido, obrigada! Assim que seu pagamento for confirmado você receberá um e-mail com o ebook em anexo. Qualquer problema é só me contatar pelo whatsapp: 21 965412338 ou responder esse email.", 
-                html: "<b>Acabei de receber o seu pedido, obrigada! Assim que seu pagamento for confirmado você receberá um e-mail com o ebook em anexo. Qualquer problema é só me contatar pelo whatsapp: 21 965412338 ou responder esse email.</b>", 
+                html: html, 
             });
             console.log("Message sent: %s", info.messageId);
         }
