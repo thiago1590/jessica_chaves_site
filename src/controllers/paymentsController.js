@@ -19,7 +19,7 @@ module.exports = {
       access_token: process.env.MP_ACCESS_TOKEN
     })
 
-    const { name, email, phone, amount} = req.params
+    const { email, amount } = req.params
     const id = v4()
 
     const purchaseOrder = {
@@ -34,12 +34,7 @@ module.exports = {
         }
       ],
       payer: {
-        name,
-        email,
-        phone: {
-          number: parseFloat(phone)
-        }
-
+        email
       },
       auto_return: 'all',
       external_reference: id,
@@ -59,7 +54,7 @@ module.exports = {
   },
 
   async listenPurchase(req, res) {
-    let {data:{id}} = req.body
+    let { data: { id } } = req.body
 
     fetch(`https://api.mercadopago.com/v1/payments/${id}`, {
       headers: { 'Authorization': `Bearer ${process.env.MP_ACCESS_TOKEN}` }
@@ -67,14 +62,14 @@ module.exports = {
       .then(
         async paymentInfo => {
           console.log(paymentInfo)
-          let { payer: { name, email, phone:{number} }, status } = paymentInfo
-          let response = await sendEmailRules(id,name,email,number,status)
+          let { payer: { email }, status } = paymentInfo
+          let response = await sendEmailRules(id, email, status)
           console.log(response)
         }
       )
       .catch(err => console.log(err.message))
-      console.log('--------------------------------------------------')
-      return res.status(200).send('processo finalizado')
+    console.log('--------------------------------------------------')
+    return res.status(200).send('processo finalizado')
   },
 
   async listPurchases(req, res) {

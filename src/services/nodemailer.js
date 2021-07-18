@@ -5,7 +5,7 @@ require('dotenv').config()
 const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI)
 oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN })
 
-async function main(senderEmail, whichEmail) {
+async function main(receiverEmail, whichEmail) {
     try {
         const accessToken = await oAuth2Client.getAccessToken()
 
@@ -26,21 +26,21 @@ async function main(senderEmail, whichEmail) {
         if (whichEmail == "first") {
             let info = await transporter.sendMail({
                 from: `"Jéssica Chaves" <${process.env.SENDER_EMAIL}>`, 
-                to: `thiagoandre2121@gmail.com, ${senderEmail}`, 
-                subject: "First Email ✔", 
-                text: "First Email", 
-                html: "<b>First Email</b>", 
+                to: `${receiverEmail}`, 
+                subject: "Ebook de Receitas", 
+                text: "Acabei de receber o seu pedido, obrigada! Assim que seu pagamento for confirmado você receberá um e-mail com o ebook em anexo. Qualquer problema é só me contatar pelo whatsapp: 21 965412338 ou responder esse email.", 
+                html: "<b>Acabei de receber o seu pedido, obrigada! Assim que seu pagamento for confirmado você receberá um e-mail com o ebook em anexo. Qualquer problema é só me contatar pelo whatsapp: 21 965412338 ou responder esse email.</b>", 
             });
             console.log("Message sent: %s", info.messageId);
         }
 
         if (whichEmail == "second") {
             let info = await transporter.sendMail({
-                from: `"Jéssica Chaves 👻" <${process.env.SENDER_EMAIL}>`,
-                to: `thiagoandre2121@gmail.com, ${senderEmail}`, 
-                subject: "Second Email ✔", 
-                text: "Second Email", 
-                html: "<b>Second Email?</b>", 
+                from: `"Jéssica Chaves" <${process.env.SENDER_EMAIL}>`,
+                to: `${receiverEmail}`, 
+                subject: "Ebook de Receitas", 
+                text: "Seu pagamento foi confirmado, obrigada! Abaixo está o link para o seu Ebook de Receitas.", 
+                html: `<b>Seu pagamento foi confirmado, obrigada! Abaixo está o link para o seu Ebook de Receitas. <br/> ${process.env.EBOOK_LINK} </b>`, 
             });
             console.log("Message sent: %s", info.messageId);
         }

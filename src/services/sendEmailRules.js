@@ -2,18 +2,17 @@ const knex = require('../database')
 const mailer = require('./nodemailer')
 const { v4 } = require('uuid')
 
-async function createPurchase(id, buyer_name, buyer_email, buyer_phone, status) {
+async function createPurchase(id, buyer_email, status) {
   try{
-    await knex('purchase').insert({
+    let retorno = await knex('purchase').insert({
       id: v4(),
       id_payment: id,
-      buyer_name,
       buyer_email,
-      buyer_phone,
       first_email_sent: 0,
       second_email_sent: 0,
       status
     })
+    return retorno
   } catch(err) {
     console.log(err.message)
   }
@@ -24,11 +23,12 @@ async function findPurchase(id) {
   return purchase
 }
 
-async function sendEmail(id, buyer_name, buyer_email, buyer_phone, status) {
+async function sendEmail(id, buyer_email, status) {
   let purchase = await findPurchase(id)
   console.log(purchase)
   if (!purchase.id) {
-    await createPurchase(id, buyer_name, buyer_email, buyer_phone, status)
+    await createPurchase(id, buyer_email, status)
+    console.log('compra criada')
   }
 
   var [{ first_email_sent, second_email_sent }] = await findPurchase(id)
