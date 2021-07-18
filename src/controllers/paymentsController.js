@@ -66,12 +66,14 @@ module.exports = {
     }).then(res => res.json())
       .then(
         async paymentInfo => {
+          console.log(paymentInfo)
           let { payer: { name, email, phone:{number} }, status } = paymentInfo
           let response = await sendEmailRules(id,name,email,number,status)
           console.log(response)
         }
       )
       .catch(err => console.log(err.message))
+      console.log('--------------------------------------------------')
       return res.status(200).send('processo finalizado')
   },
 

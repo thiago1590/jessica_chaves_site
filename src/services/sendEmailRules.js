@@ -2,27 +2,36 @@ const knex = require('../database')
 const mailer = require('./nodemailer')
 const { v4 } = require('uuid')
 
+async function createPurchase(id, buyer_name, buyer_email, buyer_phone, status) {
+  try{
+    await knex('purchase').insert({
+      id: v4(),
+      id_payment: id,
+      buyer_name,
+      buyer_email,
+      buyer_phone,
+      first_email_sent: 0,
+      second_email_sent: 0,
+      status
+    })
+  } catch(err) {
+    console.log(err.message)
+  }
+}
+
+async function findPurchase(id) {
+  let purchase = await knex('purchase').where({ id_payment: id })
+  return purchase
+}
+
 async function sendEmail(id, buyer_name, buyer_email, buyer_phone, status) {
-  let payment = await knex('purchase').where({ id_payment: id })
-  console.log(payment)
-  if (!payment.id) {
-    try{
-      await knex('purchase').insert({
-        id: v4(),
-        id_payment: id,
-        buyer_name,
-        buyer_email,
-        buyer_phone,
-        first_email_sent: 0,
-        second_email_sent: 0,
-        status
-      })
-    } catch(err) {
-      console.log(err.message)
-    }
+  let purchase = await findPurchase(id)
+  console.log(purchase)
+  if (!purchase.id) {
+    await createPurchase(id, buyer_name, buyer_email, buyer_phone, status)
   }
 
-  var [{ first_email_sent, second_email_sent }] = await knex('purchase').where({ id_payment: id })
+  var [{ first_email_sent, second_email_sent }] = await findPurchase(id)
   
     
   if (status == 'pending') {
