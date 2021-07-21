@@ -26,12 +26,15 @@ async function main(receiverEmail, whichEmail) {
             },
         });
 
-        const emailTemplatePath = resolve(__dirname, "..", "..", "public", "templateEmail", "email.hbs" ) 
-        const templateFileContent = fs.readFileSync(emailTemplatePath).toString("utf8")
+        const email1TemplatePath = resolve(__dirname, "..", "..", "public", "templateEmail", "first_email.hbs") 
+        const template1FileContent = fs.readFileSync(email1TemplatePath).toString("utf8")
+        const mail1TemplateParse =  handlebars.compile(template1FileContent)
+        const html1 = mail1TemplateParse()
 
-        const mailTemplateParse =  handlebars.compile(templateFileContent)
-
-        const html = mailTemplateParse()
+        const email2TemplatePath = resolve(__dirname, "..", "..", "public", "templateEmail", "second_email.hbs") 
+        const template2FileContent = fs.readFileSync(email2TemplatePath).toString("utf8")
+        const mail2TemplateParse =  handlebars.compile(template2FileContent)
+        const html2 = mail2TemplateParse({link:process.env.EBOOK_LINK})
 
         if (whichEmail == "first") {
             let info = await transporter.sendMail({
@@ -39,7 +42,7 @@ async function main(receiverEmail, whichEmail) {
                 to: `${receiverEmail}`, 
                 subject: "Pedido recebido - Ebook", 
                 text: "Acabei de receber o seu pedido, obrigada! Assim que seu pagamento for confirmado você receberá um e-mail com o ebook em anexo. Qualquer problema é só me contatar pelo whatsapp: 21 965412338 ou responder esse email.", 
-                html: html, 
+                html: html1, 
             });
             console.log("Message sent: %s", info.messageId);
         }
@@ -48,9 +51,9 @@ async function main(receiverEmail, whichEmail) {
             let info = await transporter.sendMail({
                 from: `"Jéssica Chaves" <${process.env.SENDER_EMAIL}>`,
                 to: `${receiverEmail}`, 
-                subject: "Ebook de Receitas", 
+                subject: "Pagamento Confirmado - Ebook de Receitas", 
                 text: "Seu pagamento foi confirmado, obrigada! Abaixo está o link para o seu Ebook de Receitas.", 
-                html: `<b>Seu pagamento foi confirmado, obrigada! Abaixo está o link para o seu Ebook de Receitas. <br/> ${process.env.EBOOK_LINK} </b>`, 
+                html: html2 
             });
             console.log("Message sent: %s", info.messageId);
         }
