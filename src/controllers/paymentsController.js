@@ -55,6 +55,7 @@ module.exports = {
 
   async listenPurchase(req, res) {
     let { data: { id } } = req.body
+    
     fetch(`https://api.mercadopago.com/v1/payments/${id}`, {
       headers: { 'Authorization': `Bearer ${process.env.MP_ACCESS_TOKEN}` }
     }).then(res => res.json())

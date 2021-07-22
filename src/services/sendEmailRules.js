@@ -28,9 +28,9 @@ async function sendEmail(id, buyer_email, status) {
   console.log(purchase)
   if (!purchase.id) {
     await createPurchase(id, buyer_email, status)
-    console.log('compra criada')
+    console.log('compra criada no DB')
   }
-
+  
   var [{ first_email_sent, second_email_sent }] = await findPurchase(id)
   
     

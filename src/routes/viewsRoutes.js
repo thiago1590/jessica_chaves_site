@@ -7,13 +7,13 @@ routes.get('/', (req, res) => {
 routes.get('/register', (req, res) => {
     return res.render("html/register.html")
 })
-routes.get('/success', (req, res) => {
+routes.get('/payments/success', (req, res) => {
     return res.render("html/success.html")
 })
-routes.get('/pending', (req, res) => {
+routes.get('/payments/pending', (req, res) => {
     return res.render("html/pending.html")
 })
-routes.get('/failure', (req, res) => {
+routes.get('/payments/failure', (req, res) => {
     return res.render("html/failure.html")
 })
 

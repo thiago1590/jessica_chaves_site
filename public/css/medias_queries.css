@@ -70,6 +70,10 @@
     #catch-phrase-container{
         margin: 20px 15px;
     }
+
+    .description {
+        font-size: 1rem;
+    }
 }
 
 @media(min-width:1000px) {
