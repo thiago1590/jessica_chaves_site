@@ -8,7 +8,7 @@ routes.get('/register', (req, res) => {
     return res.render("html/register.html")
 })
 routes.get('/success', (req, res) => {
-    return res.render("html/home.html")
+    return res.render("html/success.html")
 })
 routes.get('/pending', (req, res) => {
     return res.render("html/pending.html")
