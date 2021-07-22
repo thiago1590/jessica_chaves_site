@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const paymentsController = require('../controllers/paymentsController');
 
-routes.get('/payments/checkout/:name/:email/:phone/:amount', paymentsController.checkout)
+routes.get('/payments/checkout/:email/:amount', paymentsController.checkout)
 routes.get('/purchases', paymentsController.listPurchases)
 routes.post('/listenPayment', paymentsController.listenPurchase)
 
