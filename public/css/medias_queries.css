@@ -4,9 +4,19 @@
     }
 }
 
-@media(max-width: 420px) {
+@media(max-width: 520px) {
     header h1 {
     font-size: 1.8rem;
+    }
+}
+
+@media(min-width:490px){
+    #catch-phrase-title h2:first-child {
+        font-size: 1.7rem;
+    }
+    
+    #catch-phrase-title h2:last-child {
+        font-size: 1.3rem;
     }
 }
 
@@ -68,11 +78,11 @@
     }
 
     #catch-phrase-container{
-        margin: 20px 15px;
+        margin: 2rem 15px;  
     }
 
     .description {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 }
 
