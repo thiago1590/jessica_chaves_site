@@ -4,5 +4,3 @@ src/database/database.sqlite
 .gitignore
 yarn.lock
 .env
-.gitignore
-
