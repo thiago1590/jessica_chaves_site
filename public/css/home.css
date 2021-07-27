@@ -73,3 +73,39 @@ body,html {
     margin-top: 2rem;
 }
 
+/* About me */
+
+#about-me {
+
+}
+
+.topic {
+ font-family: 'Satisfy', 'sans-serif';
+ font-size: 2.2rem;
+}
+
+#hey-title {
+    font-family: Playfair Display;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.button {
+    background-color: #74CF5E;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Roboto', 'sans-serif';
+    padding: 10px 3rem;
+}
+
+.button:hover {
+
+}
+
+.section-description {
+    font-family: Playfair Display;
+    letter-spacing: 0.05em;
+}
