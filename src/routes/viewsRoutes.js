@@ -17,5 +17,9 @@ routes.get('/payments/failure', (req, res) => {
     return res.render("html/ebook/failure.html")
 })
 
+routes.get('/home', (req, res) => {
+    return res.status(200).render("html/home.html")
+})
+
 
 module.exports = routes;

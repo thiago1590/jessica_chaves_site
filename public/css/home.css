@@ -1,0 +1,39 @@
+body,html {
+    height: 100vh;
+}
+
+.container-fluid, .row, .col {
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    background-image: url(../images/background2.png);
+    background-color: var(--purple);
+}
+
+/* Navbar */
+
+#logo {
+    width: 200px;
+    margin-left: 10px;
+}
+
+#navbar {
+    height: 55px;
+    background-color: #FFF;
+}
+
+#navbar a {
+    font-weight: bold;
+}
+
+.navbar, .navbar-brand {
+    padding: 0;
+    margin: 0;
+}
+
+#navigation a:hover {
+    color: #A7BFB9
+}
+

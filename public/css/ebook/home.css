@@ -62,7 +62,7 @@ header h1 {
 
 #content img { 
     display: flex;
-    height: 95%;
+    height: 97%;
     align-self: center;
 }
 
@@ -73,7 +73,7 @@ header h1 {
     display: flex;
     flex-direction: column;
     width: 390px;
-    height: 95%;
+    height: 97%;
     align-self: center;
     background-color: #F7F7F7;
 }
@@ -96,7 +96,7 @@ header h1 {
     border: 0px;
     border-radius: 5px;
     padding: 1rem 3.5rem;
-    margin-top: 2rem;
+    margin-top: 1.2rem;
     margin-bottom: 6px;
     transition: all 0.5s;
     cursor: pointer;
