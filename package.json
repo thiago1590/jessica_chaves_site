@@ -12,6 +12,7 @@
   "dependencies": {
     "@aws-sdk/client-ses": "^3.21.0",
     "body-parser": "^1.19.0",
+    "boostrap": "^2.0.0",
     "consolidate": "^0.15.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
