@@ -1,5 +1,5 @@
 body,html {
-    height: 100vh;
+    height: 100%;
 }
 
 .container-fluid, .row, .col {
@@ -108,4 +108,24 @@ body,html {
 .section-description {
     font-family: Playfair Display;
     letter-spacing: 0.05em;
+}
+
+/* Image section */
+
+#image-section {
+    display: block;
+    height: 500px;
+    width: 100%;
+    background-image: linear-gradient(90deg, 
+    rgba(0, 0, 0, 0.84) 0%, rgba(79, 79, 79, 0.27) 100%), 
+    url('../images/vegan-image.png') !important;
+    background-size: cover;  
+}
+
+#image-section-phrase {
+    color: #FFF;
+    font-weight: bold;
+    
+    line-height: 500px;
+    text-align: center;
 }
