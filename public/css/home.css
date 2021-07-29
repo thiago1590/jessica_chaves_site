@@ -141,7 +141,52 @@ body,html {
 #image-section-phrase {
     color: #FFF;
     font-weight: bold;
-    
     line-height: 500px;
     text-align: center;
+}
+
+/* Fotter */
+
+footer{
+    background-color: #171717;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+
+footer p {
+    margin-top: 10px;
+    align-self: center;
+    color: white;
+}
+
+#jessica-logo {
+    width: 180px;
+    align-self: center;
+}
+
+#instagram {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+#instagram-logo {
+    width: 25px;
+    height: 25px;
+    align-self: center;
+    margin-right: 8px;
+}
+
+#facebook {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+#facebook-logo {
+    width: 25px;
+    height: 25px;
+    align-self: center;
+    margin-right: 8px;   
 }
