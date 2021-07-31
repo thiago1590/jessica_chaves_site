@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div class="container-fluid h-100" id="container">
+    <div class="container-fluid" id="container">
 
         <!--Navbar-->
         <header>
@@ -59,22 +59,28 @@
 
         
         <!--Bem-vindo-->
-        <section id="welcome" class="d-flex">
+        <section id="welcome" class="container-fluid">
 
-            <div id="image-wrapper">
-                <img id="main-image" src="/images/main_image_home3.png" alt="imagem principal">
-            </div>
-            <div id="welcome-content">
-                <img class="img-fluid mt-4" src="images/logo-vertical.png" alt="logo maior">
-                <div id="welcome-text-wrapper">
-                    <h1>Seja Bem-vindo(a) <br> ao meu site!</h1>
-                    <p class="w-75">Aqui você encontra informações sobre o meu trabalho, minha equipe e os serviços e
-                        tratamentos que
-                        oferecemos para o seu bem estar. Aqui é também um espaço de informações e receitas, sempre com uma
-                        visão holística e integrada sobre saúde.
-                    </p>
-                </div>  
-            </div>
+           <div class="row">
+                <div id="image-wrapper-md" class="col-md-5 mt-2 p-0 d-none d-md-block">
+                    <img class="img-fluid" id="main-image" src="/images/main_image_home3.png" alt="imagem principal">
+                </div>
+                <div id="welcome-content" class="col-md-7">
+                    <img id="logo-bigger" class="img-fluid mt-4" src="images/logo-vertical.png" alt="logo maior">
+                    <div id="welcome-text-wrapper">
+                        <h1>Seja Bem-vindo(a) <br> ao meu site!</h1>
+                        <p class="w-75">Aqui você encontra informações sobre o meu trabalho, minha equipe e os serviços e
+                            tratamentos que
+                            oferecemos para o seu bem estar. Aqui é também um espaço de informações e receitas, sempre com uma
+                            visão holística e integrada sobre saúde.
+                        </p>
+                    </div> 
+                    <!--Aparece apenas em sm-->
+                </div>
+                <div id="image-wrapper-sm" class="col-md-5 mt-2  p-0 d-md-none">
+                    <img class="img-fluid" id="main-image" src="/images/main_image_home3.png" alt="imagem principal">
+                </div> 
+           </div>
 
         </section>
 
