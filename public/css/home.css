@@ -19,7 +19,6 @@ body,html {
 }
 
 #navbar {
-    height: 55px;
     background-color: #FFF;
 }
 
@@ -197,6 +196,18 @@ body,html {
     font-size: 18px;
     line-height: 2.1rem;
     color: #535151!important;
+}
+
+/* Ebook */
+
+#ebook-btn {
+    margin-top: 2rem;
+}
+
+@media(max-width:768px) {
+    #ebook-btn {
+        margin: 10px 0;
+    }
 }
 
 /* schedule your appointment */
