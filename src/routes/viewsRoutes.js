@@ -2,7 +2,7 @@ const express = require('express');
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-    return res.status(200).render("html/ebook/home.html")
+    return res.status(200).render("html/home.html")
 })
 routes.get('/register', (req, res) => {
     return res.render("html/ebook/register.html")
@@ -17,8 +17,13 @@ routes.get('/payments/failure', (req, res) => {
     return res.render("html/ebook/failure.html")
 })
 
-routes.get('/home', (req, res) => {
-    return res.status(200).render("html/home.html")
+routes.get('/ebook', (req, res) => {
+    return res.status(200).render("html/ebook/home.html")
+})
+
+//testing
+routes.get('/teste', (req, res) => {
+    return res.status(200).render("html/teste_ebook.html")
 })
 
 
