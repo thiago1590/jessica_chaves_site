@@ -40,6 +40,10 @@ body,html {
     text-align: center;
 }
 
+.cursor {
+    cursor: pointer;
+}
+
 @media(max-width:991px) {
     #navigation {
         background: #fff;
