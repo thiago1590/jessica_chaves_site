@@ -36,6 +36,19 @@ body,html {
     color: #A7BFB9
 }
 
+#navigation a {
+    text-align: center;
+}
+
+@media(max-width:990px) {
+    #navigation {
+        background: #fff;
+        margin: 0 1rem;
+        padding: 2rem 0;
+        border-radius: 0 0 3px 3px;
+    }
+}
+
 /* Welcome */ 
 
 #welcome {
@@ -155,7 +168,7 @@ body,html {
 
 #hey-title {
     font-family: Playfair Display;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 
@@ -175,18 +188,24 @@ body,html {
 }
 
 .section-description {
-    font-family: Playfair Display;
+    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
     letter-spacing: 0.05em;
+    font-size: 18px;
+    line-height: 2.1rem;
+    color: #535151!important;
 }
 
 /* schedule your appointment */
 
-#agendar-consulta-img-wrapper{
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
+.button2 {
+    background-color: #74CF5E;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Roboto', 'sans-serif';
+    padding: 10px 1rem;
 }
 
 /* Image section */
@@ -195,11 +214,11 @@ body,html {
     height: 40vh;
     width: 100%;
     background-image: linear-gradient(90deg, 
-    rgba(0, 0, 0, 0.644) 0%, rgba(61, 61, 61, 0.27) 100%), 
-    url('../images/health-food3.png') !important;
+    #963BA0 0%, rgba(61, 61, 61, 0.27) 100%), 
+    url('../images/health-food.png') !important;
     background-size: cover; 
     display: flex;
-    align-items: center; 
+    align-items: center;   
 }
 
 #image-section-phrase {
