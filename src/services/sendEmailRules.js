@@ -24,8 +24,7 @@ async function findPurchase(id) {
 }
 
 async function sendEmail(id, buyer_email, status) {
-  let [purchase] = await findPurchase(id)
-
+  let purchase = await findPurchase(id)
   if (!purchase.id) {
     await createPurchase(id, buyer_email, status)
     console.log('compra criada no DB')
