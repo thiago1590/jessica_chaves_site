@@ -190,6 +190,12 @@ body,html {
 
 }
 
+#holistic-link {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
 .section-description {
     font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
     letter-spacing: 0.05em;
@@ -197,6 +203,17 @@ body,html {
     line-height: 2.1rem;
     color: #535151!important;
 }
+
+
+    @media(max-width: 992px) {
+        #holistic-text { 
+            margin-top: 10px;
+        }
+        #holistic-link {
+            justify-content: flex-start;
+        }
+    }
+
 
 /* Ebook */
 
