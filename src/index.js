@@ -20,7 +20,9 @@ app.set('view engine', 'html')
 app.use('/',paymentsRoute)
 app.use('/', viewsRoute)
 
-app.listen(3000, function(err){
+port = process.env.PORT || 3000
+
+app.listen(port, function(err){
     if(err) console.error(err);
     console.log('API INICIADA NA PORTA 3000') 
 });
