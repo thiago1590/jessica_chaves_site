@@ -1,0 +1,60 @@
+@media(max-width:470px) {
+    #content-header h1{
+        font-family: Lato, Helvetica, Arial, sans-serif;
+        color: #636871;
+        font-size: 1.5rem;
+    }
+    #ebook-image {
+        height: 100px;
+        width: 100px;
+    }
+    #form {
+        margin-top: 40px;
+    }
+}
+
+@media(max-width:600px) {
+    #right-container {
+        display: none;
+    }
+    #container{
+        height: 100vh;
+    }
+}
+
+@media(max-width:700px) {
+    #left-container {
+        margin-right: 0;
+        border: 0;
+    }
+    #right-container {
+        border: 0;
+    }
+}
+
+@media(max-width:800px) {
+    #right-container p {
+        font-size: 15px;
+    }
+}
+
+@media(max-width:960px) {
+    #container {
+        margin-top: 0;
+    }
+}
+
+
+@media (max-width:900px) {
+    .input-sm{
+        display: block;
+    }
+
+    .input{
+        display: none;
+    }
+
+    .label {
+        display: none;
+    }
+}

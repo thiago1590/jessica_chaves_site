@@ -1,0 +1,310 @@
+body,html {
+    height: 100%;
+}
+
+.container-fluid, .row, .col {
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    
+}
+
+/* Navbar */
+
+#logo {
+    width: 200px;
+    margin-left: 10px;
+}
+
+#navbar {
+    background-color: #FFF;
+}
+
+#navbar a {
+    font-weight: bold;
+}
+
+.navbar, .navbar-brand {
+    padding: 0;
+    margin: 0;
+}
+
+#navigation a:hover {
+    color: #A7BFB9
+}
+
+#navigation a {
+    text-align: center;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+@media(max-width:991px) {
+    #navigation {
+        background: #fff;
+        margin: 0 1rem;
+        padding: 2rem 0;
+        border-radius: 0 0 3px 3px;
+    }
+}
+
+/* Welcome */ 
+
+#welcome {
+    background-image: url(../images/background2.png);
+    background-color: var(--purple);
+}
+
+#image-wrapper-md {
+    display: flex;
+    align-items: flex-end;
+
+}
+
+#welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#welcome-text-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome-content h1 {
+    font-family: Satisfy;
+    color: #FFF;
+    font-size: 3.7rem;
+    text-align: center;
+}
+
+#welcome p {
+    font-family: Sansita;
+    color: #FFF;
+    letter-spacing: 0.05em;
+    text-align: justify;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    max-width: 65%;
+}
+
+@media(max-width:1520px) {
+    #logo-bigger {
+        width: 45%;
+    }
+    #welcome-content h1 {
+        font-size: 3.3rem;
+    }
+    #welcome p {
+        font-size: 1.1rem;
+    }
+}
+
+@media(max-width:1300px) {
+    #logo-bigger {
+        width: 40%;
+    }
+    #welcome-content h1 {
+        font-size: 3.1rem;
+    }
+    #welcome p {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:1215px) {
+    #logo-bigger {
+        display: none;
+    }
+} 
+@media(max-width:1215px) {
+    #welcome-content h1 {
+        font-size: 3.5rem;
+    }
+    #welcome p {
+        font-size: 1.1rem;
+    }
+}
+
+@media(max-width:1060px) {
+    #welcome-content h1 {
+        font-size: 3.2rem;
+    }
+    #welcome p {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:917px) {
+    #welcome-content h1 {
+        font-size: 2.8rem;
+    }
+    #welcome p {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:768px) {
+    #welcome-content h1 {
+        margin-top: 2.2rem;
+    }
+    #welcome p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* About me */
+
+.topic {
+ font-family: 'Satisfy', 'sans-serif';
+ font-size: 2.2rem;
+}
+
+#hey-title {
+    font-family: Playfair Display;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.button {
+    background-color: #74CF5E;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Roboto', 'sans-serif';
+    padding: 10px 3rem;
+}
+
+.button:hover {
+
+}
+
+#holistic-link {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.section-description {
+    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
+    letter-spacing: 0.05em;
+    font-size: 18px;
+    line-height: 2.1rem;
+    color: #535151!important;
+}
+
+
+    @media(max-width: 992px) {
+        #holistic-text { 
+            margin-top: 10px;
+        }
+        #holistic-link {
+            justify-content: flex-start;
+        }
+    }
+
+
+/* Ebook */
+
+#ebook-btn {
+    margin-top: 2rem;
+}
+
+@media(max-width:768px) {
+    #ebook-btn {
+        margin: 10px 0;
+    }
+}
+
+/* schedule your appointment */
+
+.button2 {
+    background-color: #74CF5E;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Roboto', 'sans-serif';
+    padding: 10px 1rem;
+}
+
+/* Image section */
+
+#image-section {
+    height: 40vh;
+    width: 100%;
+    background-image: linear-gradient(90deg, 
+    #963ba0b4 0%, rgba(61, 61, 61, 0.27) 100%), 
+    url('../images/health-food.png') !important;
+    background-size: cover; 
+    display: flex;
+    align-items: center;   
+}
+
+#image-section-phrase {
+    color: #FFF;
+    font-weight: bold;
+    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 2.3rem;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+/* Fotter */
+
+footer{
+    background-color: #171717;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+
+footer p {
+    margin-top: 10px;
+    align-self: center;
+    color: white;
+}
+
+#jessica-logo {
+    width: 180px;
+    align-self: center;
+}
+
+#instagram {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+#instagram-logo {
+    width: 25px;
+    height: 25px;
+    align-self: center;
+    margin-right: 8px;
+}
+
+#facebook {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+#facebook-logo {
+    width: 25px;
+    height: 25px;
+    align-self: center;
+    margin-right: 8px;   
+}
